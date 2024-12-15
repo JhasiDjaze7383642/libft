@@ -6,7 +6,7 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 07:10:56 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/11 13:30:44 by rarakoto         ###   ########.fr       */
+/*   Updated: 2024/12/15 08:04:43 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <fcntl.h>
 # include <limits.h>
 # define STANDARD_BUFFER 1024
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 # ifndef PROGRAM_NAME
 #  define PROGRAM_NAME "program"
 # endif
@@ -36,6 +39,12 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
+
+typedef struct s_should_return
+{
+	t_bool	status;
+	void	*value;
+}			t_return;
 
 typedef enum e_str_comp
 {
@@ -278,18 +287,24 @@ t_str_comp	compare(char *s1, char *s2);
 t_str_comp	insensitive_compare(char *s1, char *s2);
 
 /* This function free the address pointed by the pointer and set it to NULL. */
-void	ft_free(void **pointer);
+void		ft_free(void **pointer);
 
 /* Prompt an error the STDERR_FILENO.
  * NOTE: if s is NULL, DEFAULT_ERROR_MESSAGE is printed. */
-int		error(char const *s, int return_value);
+int			error(char const *s, int return_value);
 
 /* Return one line inside of the file descriptor every call.
- * NOTE: fd == FILE_ERR will return NULL. */
-char	*get_next_line(int fd, unsigned long long size);
+ * NOTE: fd == FILE_ERR will return NULL.
+ * get_next_line(-1) should be called if you want to get the line
+ * inside another fd after getting some line inside one. */
+char		*get_next_line(int fd);
 
 /* Return the size of the file provided in path.
  * NOTE: 0 is returned if the path send got an error or path is NULL. */
-unsigned long long	get_filesize(char *path);
+long		get_filesize(char *path);
+
+/* Return the number of occurence of character inside the string s,
+ * NOTE: 0 is returned if s is NULL. */
+size_t		n_time_in(char *s, char character);
 
 #endif

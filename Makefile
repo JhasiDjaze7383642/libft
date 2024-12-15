@@ -41,7 +41,9 @@ SRC = ft_atoi.c \
 	  compare_string.c \
 	  ft_free.c \
 	  get_next_line.c \
-	  file_utils.c
+	  get_next_line_utils.c \
+	  file_utils.c \
+	  occurence_in.c
 
 BONUS = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \

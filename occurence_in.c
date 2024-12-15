@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   occurence_in.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 11:55:11 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/14 22:24:09 by rarakoto         ###   ########.fr       */
+/*   Created: 2024/12/14 20:38:26 by rarakoto          #+#    #+#             */
+/*   Updated: 2024/12/14 20:39:57 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	error(char const *s, int return_value)
+size_t	n_time_in(char *s, char character)
 {
-	if (s)
-	{
-		write(STDERR_FILENO, PROGRAM_NAME ": ", ft_strlen(PROGRAM_NAME) + 2);
-		write(STDERR_FILENO, s, ft_strlen(s));
-	}
-	else
-		write(STDERR_FILENO, PROGRAM_NAME ": " DEFAULT_ERROR_MESSAGE,
-			ft_strlen(PROGRAM_NAME) + 2);
-	return (return_value);
+	size_t	count;
+
+	if (!s)
+		return (0);
+	count = 0;
+	while (*s)
+		if (*s++ == character)
+			count++;
+	return (count);
 }

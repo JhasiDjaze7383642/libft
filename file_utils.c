@@ -6,18 +6,18 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:18:47 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/11 13:26:25 by rarakoto         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:32:29 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long long	get_filesize(char *path)
+long	get_filesize(char *path)
 {
-	unsigned long long	filesize;
-	unsigned long long	bytes;
-	char				buffer[STANDARD_BUFFER];
-	int					fd;
+	long	filesize;
+	int		bytes;
+	char	buffer[STANDARD_BUFFER];
+	int		fd;
 
 	filesize = 0;
 	if (!path)

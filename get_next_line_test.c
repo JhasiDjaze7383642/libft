@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   get_next_line_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 11:55:11 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/14 22:24:09 by rarakoto         ###   ########.fr       */
+/*   Created: 2024/12/15 07:57:39 by rarakoto          #+#    #+#             */
+/*   Updated: 2024/12/15 07:58:04 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	error(char const *s, int return_value)
+int	main(int argc, char **argv)
 {
-	if (s)
+	int		fd;
+	int		nb;
+	int		pos;
+	char	*line;
+
+	if (argc == 2)
 	{
-		write(STDERR_FILENO, PROGRAM_NAME ": ", ft_strlen(PROGRAM_NAME) + 2);
-		write(STDERR_FILENO, s, ft_strlen(s));
+		fd = open("file.txt", O_RDONLY);
+		if (fd == FILE_ERR)
+			return (EXIT_FAILURE);
+		nb = atoi(argv[1]);
+		pos = -1;
+		while (++pos < nb)
+		{
+			line = get_next_line(fd);
+			if (line)
+				write(STDOUT_FILENO, line, ft_strlen(line));
+			else
+				write(STDOUT_FILENO, "(null)\n", 7);
+			free(line);
+		}
+		close(fd);
 	}
-	else
-		write(STDERR_FILENO, PROGRAM_NAME ": " DEFAULT_ERROR_MESSAGE,
-			ft_strlen(PROGRAM_NAME) + 2);
-	return (return_value);
+	return (EXIT_SUCCESS);
 }
