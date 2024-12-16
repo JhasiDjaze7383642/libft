@@ -6,7 +6,7 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 07:10:56 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/16 18:33:10 by rarakoto         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:23:15 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -296,7 +296,9 @@ int			error(char const *s, int return_value);
 /* Return one line inside of the file descriptor every call.
  * NOTE: fd == FILE_ERR will return NULL.
  * get_next_line(-1) should be called if you want to get the line
- * inside another fd after getting some line inside one. */
+ * inside another fd after getting some line inside one.
+ * BUG: get_next_line need to be used with file that end with \n. A fix is
+ * still in progress. */
 char		*get_next_line(int fd);
 
 /* Return the size of the file provided in path.
