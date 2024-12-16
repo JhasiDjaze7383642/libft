@@ -6,7 +6,7 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:06:51 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/15 07:55:51 by rarakoto         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:16:22 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*subtract_line_and_buffer_the_rest(char **line, char **leftover);
 char	*have_line_in_buffer(char **leftover);
+t_bool	clean_allocation(char *mem_adr);
 
 void	*file_error_handler(char **leftover)
 {
