@@ -6,7 +6,7 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 07:10:56 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/16 19:23:15 by rarakoto         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:05:29 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -297,8 +297,9 @@ int			error(char const *s, int return_value);
  * NOTE: fd == FILE_ERR will return NULL.
  * get_next_line(-1) should be called if you want to get the line
  * inside another fd after getting some line inside one.
- * BUG: get_next_line need to be used with file that end with \n. A fix is
- * still in progress. */
+ * BUG: get_next_line can't retrieve the last line if it is not terminated
+ * with \n and the exact size of the last buffer are BUFFER_SIZE. A fix
+ * will be implemented. */
 char		*get_next_line(int fd);
 
 /* Return the size of the file provided in path.

@@ -6,7 +6,7 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:30:43 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/16 19:17:07 by rarakoto         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:03:13 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*get_next_line(int fd)
 		if (bytes == READ_ERR || bytes == READ_END)
 			return (read_error_or_eof(&leftover, &line));
 		process_line(&leftover, &line, &old_addr, bytes);
-		if (ft_strchr(line, '\n'))
+		if (ft_strchr(line, '\n') || bytes < BUFFER_SIZE)
 			return (subtract_line_and_buffer_the_rest(&line, &leftover));
 	}
 	return (line);
