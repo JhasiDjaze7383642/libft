@@ -6,7 +6,7 @@
 /*   By: rarakoto <rarakoto@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 07:10:56 by rarakoto          #+#    #+#             */
-/*   Updated: 2024/12/17 15:05:29 by rarakoto         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:24:52 by rarakoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
-# ifndef PROGRAM_NAME
-#  define PROGRAM_NAME "program"
-# endif
-# ifndef DEFAULT_ERROR_MESSAGE
-#  define DEFAULT_ERROR_MESSAGE "an error occured.\n"
-# endif
+# define PROGRAM_NAME "miniRT"
+# define DEFAULT_ERROR_MESSAGE "an error occured.\n"
+
 
 typedef struct s_list
 {
@@ -291,7 +288,7 @@ void		ft_free(void **pointer);
 
 /* Prompt an error the STDERR_FILENO.
  * NOTE: if s is NULL, DEFAULT_ERROR_MESSAGE is printed. */
-int			error(char const *s, int return_value);
+int			err(char const *s, int return_value);
 
 /* Return one line inside of the file descriptor every call.
  * NOTE: fd == FILE_ERR will return NULL.

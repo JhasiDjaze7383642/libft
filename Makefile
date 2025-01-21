@@ -43,7 +43,8 @@ SRC = ft_atoi.c \
 	  get_next_line.c \
 	  get_next_line_utils.c \
 	  file_utils.c \
-	  occurence_in.c
+	  occurence_in.c \
+	  error.c
 
 BONUS = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \
@@ -61,7 +62,7 @@ BONUS_OBJET = ${BONUS:.c=.o}
 
 AR = ar -rcs
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
